@@ -4,7 +4,7 @@ import Signin from '../auth/Signin';
 function Home() {
     return (
         <main className="container">
-            <Signin />
+            <h2>Home</h2>
         </main>
     )
 }
