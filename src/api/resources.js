@@ -1,5 +1,5 @@
 
-const BASE_URL = 'http://localhost:5001';
+const BASE_URL = 'https://reach-iqo7.onrender.com';
 // const API_URL = 'https://api.scryfall.com';
 
 const access = {
