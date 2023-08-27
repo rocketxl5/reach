@@ -1,5 +1,6 @@
 .form-content {
     min-width: min(100%, 31em);
+    margin-block-start: 4em;
 }
 
 /* .form-logo {
@@ -69,11 +70,6 @@
 }
 
 @media screen and (width >= 25em) {
-    .form-content {
-        border-radius: 5px;
-        border: 1px solid var( --clr-bg-body);
-    }
-
     .form-element label {
         font-size: var(--fs-500);
     }
@@ -93,6 +89,16 @@
     .form-element:last-of-type {
         flex-direction: row;
         justify-content: space-between;
+    }
+}
+
+@media screen and (width >= 35em) {
+    .form-content {
+        /* margin-block-start: 8em; */
+    }
+    .form {
+        border-radius: 5px;
+        border: 1px solid var( --clr-bg-body);
     }
 }
 
