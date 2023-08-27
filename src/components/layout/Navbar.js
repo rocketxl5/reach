@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
     return (
@@ -7,10 +8,10 @@ function Navbar() {
             <input type="checkbox" id="mobile-nav" />
             <nav>
                 <ul>
-                    <li><a href="#"><span>Home</span></a></li>
-                    <li><a href="#"><span>Mission</span></a></li>
-                    <li><a href="#"><span>Crew</span></a></li>
-                    <li><a href="#"><span>Data</span></a></li>
+                    <li><Link className="nav-link" to="#"><span>About</span></Link></li>
+                    <li><Link className="nav-link" to="#"><span>Home</span></Link></li>
+                    <li><Link className="nav-link" to="#"><span>Team</span></Link></li>
+                    <li><Link className="nav-link" to="#"><span>Contact</span></Link></li>
                 </ul>
             </nav>
             <label htmlFor="mobile-nav" className="mobile-nav-label">

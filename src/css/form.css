@@ -1,11 +1,8 @@
 .form-content {
-    min-width: min(95%, 31em);
-    background-color: var(--clr-header);
-    border: 1px solid var(---clr-bg-bod);
-    border-radius: 5px;
+    min-width: min(100%, 31em);
 }
 
-.form-logo {
+/* .form-logo {
     background-color: var(--clr-bg-header);
     border-top-left-radius: 5px; 
     border-top-right-radius: 5px; 
@@ -16,7 +13,7 @@
     line-height: 1;
     font-size: clamp(2rem, 2rem  + 4vw, 4rem);
     font-weight: 500;
-}
+} */
 
 .form-title h2 {
     text-align: center;
@@ -38,6 +35,14 @@
     font-size: var(--fs-400);
     border-radius: 5px;
     border: 1px solid var(--clr-bg-body)
+}
+
+.form-element input::placeholder {
+    color: var( --clr-bg-body);
+}
+
+.form-element input:focus::placeholder {
+    opacity: 0;
 }
 
 .form-element:last-of-type {
@@ -63,7 +68,12 @@
     text-align: center;
 }
 
-@media screen and (width >= 26em) {
+@media screen and (width >= 25em) {
+    .form-content {
+        border-radius: 5px;
+        border: 1px solid var( --clr-bg-body);
+    }
+
     .form-element label {
         font-size: var(--fs-500);
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Home from './components/views/Home';
 import Signin from './components/auth/Signin';
@@ -14,7 +14,7 @@ import './css/form.css';
 function App() {
 
   return (
-    <div className="background">
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Signup />} />
       </Routes>
-    </div>
+    </>
   )
 }
 
