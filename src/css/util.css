@@ -2,6 +2,10 @@
     padding-inline: var(--size-1);
 }
 
+.padding-2-inline {
+    padding-inline: var(--size-2);
+}
+
 .padding-2-block {
     padding-block: var(--size-2);
 }

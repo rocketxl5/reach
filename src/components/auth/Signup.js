@@ -12,10 +12,10 @@ function Signup() {
     return (
         <div className="container">
             <div className="form-content">
-                <div className="form-logo padding-1-inline padding-2-block">
+                <div className="form-logo">
                     <h1 className="center"><Link to="/">Reach</Link></h1>
                 </div>
-                <form className="form padding-1-inline padding-2-block">
+                <form className="form">
                     <div className="form-title">
                         <h2>Create account</h2>
                     </div>
