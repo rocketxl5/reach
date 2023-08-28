@@ -74,14 +74,16 @@ nav ul {
     inset: 0 0 0 100%;
     display: flex;
     flex-direction: column;
-    gap: calc(1em + 2vh);
     height: calc(100vh - 4em);
     margin-block-start: 4em;
-    padding-inline-start: 2em;
     overflow-y: hidden;
-    background: teal;
     /* background: var(--clr-header); */
     transition: 0.2s ease;
+}
+
+nav li {
+    padding: 1rem;
+    border-bottom: 1px solid var(--clr-bg-body);
 }
 
 nav .nav-link {
