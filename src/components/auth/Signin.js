@@ -34,9 +34,9 @@ function Signin() {
     return (
         <div className="container">
             <div className="form-content">
-                {/* <div className="form-logo padding-1-inline padding-2-block">
-                    <h1 className="center">Reach</h1>
-                </div> */}
+                <div className="form-logo padding-1-inline padding-2-block">
+                    <h1 className="center"><Link to="/">Reach</Link></h1>
+                </div>
                 <form className="form padding-1-inline padding-2-block">
                     <div className="form-title">
                         <h2>Sign in</h2>

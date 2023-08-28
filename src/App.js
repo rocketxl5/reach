@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/layout/Header';
 import Home from './components/views/Home';
 import Signin from './components/auth/Signin';
 import Signup from './components/auth/Signup';
@@ -15,7 +14,6 @@ function App() {
 
   return (
     <>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
