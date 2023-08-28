@@ -47,7 +47,7 @@ body {
 .main-header {
     width: 100%;
     height: 4em;
-    padding-inline: 2em;
+    padding-inline: 0.5em;
     /* background-color: var(--clr-bg-header); */
     border-bottom: 1px solid var(--clr-bg-body);
 }
@@ -68,7 +68,6 @@ body {
     /* font-size: clamp(2rem + 1vw, 2rem + 2vw, 2rem + 4vw); */
 }
 
-
 /* Navigation */
 nav ul {
     position: fixed;
@@ -76,15 +75,13 @@ nav ul {
     display: flex;
     flex-direction: column;
     gap: calc(1em + 2vh);
-    max-height: 100vh;
-    padding-block-start: calc(4em + 15vh);
+    height: calc(100vh - 4em);
+    margin-block-start: 4em;
     padding-inline-start: 2em;
-    background: var(--clr-header);
+    overflow-y: hidden;
+    background: teal;
+    /* background: var(--clr-header); */
     transition: 0.2s ease;
-}
-
-nav  {
-    font-size: var(--fs-500);
 }
 
 nav .nav-link {
@@ -92,10 +89,25 @@ nav .nav-link {
     color: var(--clr-body);
 }
 
-.signing-links {
-    display: none;
+.access {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
+.access-links a {
+    display: inline-block;
+    min-width: 5em;
+    text-align: center;
+    /* padding-inline: 1em; */
+    padding-block: 0.5em;
+    border: 1px solid var(--clr-bg-body);
+    border-radius: 5px;
+}
+
+.access-links a:last-child {
+    margin-inline-start: 1rem;
+}
 
 #mobile-nav {
     display: none;
@@ -156,29 +168,11 @@ header:has(input:checked) nav ul {
     left: 0;
 }
 
-@media screen and (width >= 50em) {
+body:has(input:checked)  {
+    overflow-y: hidden;
+}
 
-    .signing-links {
-        display: flex;
-        justify-content: space-between;
-        /* width: 18%; */
-    }
-
-    .signing-links a {
-        min-width: 5em;
-        text-align: center;
-        padding-block: 0.5em;
-        border: 1px solid var(--clr-bg-body);
-        border-radius: 5px;
-    }
-    
-    .signing-links a:last-child {
-        margin-inline-start: 1em;
-    }
-
-    .signing-link {
-        display: none;
-    }
+@media screen and (width >= 45em) {
 
     .main-header {
         height: 4.5em;
@@ -196,18 +190,19 @@ header:has(input:checked) nav ul {
         display: flex;
         justify-content: space-between;
         height: 100%;
-        width: 70%;
+        width: 75%;
     }
 
     nav ul {
         position: static;
         flex-direction: row;
-        align-items: center;
+        /* align-items: center; */
         background: none;
         backdrop-filter: none;
-        gap: calc(0.5em + 1vw);
+        gap: 1rem;
+        margin: 0;
         padding: 0;
-        width: 70%;
+        min-width: 62%;
         height: 100%;
     }
 
@@ -222,7 +217,7 @@ header:has(input:checked) nav ul {
         display: flex;
         align-items: center;
         height: 100%;
-        padding-inline: calc(0.2em + 1vw);
+        padding-inline: 1rem;
         /* font-size: clamp(1rem, .5rem + 1.5vw, 1.5rem); */
     }
 
