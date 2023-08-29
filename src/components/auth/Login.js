@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import useFormValidation from '../hooks/useFormValidation'
-import validateFields from '../utilities/validateLogin'
+import inputValidation from '../utilities/validateLogin'
 import { UserContext } from '../../contexts/UserContext'
 import access from '../../api/resources'
 
@@ -15,9 +15,9 @@ function Login() {
         setIsValid(true)
     }
 
-    const { handleChange, handleSubmit, values, errors } = useFormValidation(
+    const { handleChange, handleSubmit, handleFocus, handleBlur, values, errors } = useFormValidation(
         callback,
-        validateFields,
+        inputValidation,
         {
             email: '',
             password: ''
@@ -35,26 +35,30 @@ function Login() {
                         <h2>Sign in</h2>
                     </div>
                     <div className="form-element">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="name">Email</label>
                         <input
-                            className={errors.email && 'error-message'}
+                            className={errors.email && 'input-error'}
                             type="text"
                             name="email"
                             id="email"
                             value={values.email}
                             onChange={handleChange}
-                            placeholder="Email" />
+                            onBlur={handleBlur}
+                            onFocus={handleFocus}
+                            placeholder={errors.email ? errors.email : "Email"} />
                     </div>
                     <div className="form-element">
                         <label htmlFor="password">Password</label>
                         <input
-                            className={errors.password && 'error-message'}
+                            className={errors.password && 'input-error'}
                             type="password"
                             name="password"
                             id="password"
-                            valur={values.password}
+                            value={values.password}
                             onChange={handleChange}
-                            placeholder="Password" />
+                            onBlur={handleBlur}
+                            onFocus={handleFocus}
+                            placeholder={errors.password ? errors.password : "Password"} />
                     </div>
                     <div className="form-element">
                         <Link className="link" to="/register">Create account</Link>

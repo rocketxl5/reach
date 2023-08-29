@@ -18,10 +18,22 @@
     text-align: center;
 }
 
+.input-error {
+    border-color: var(--clr-danger) !important; 
+}
+
+.input-error::placeholder {
+    color: var(--clr-danger) !important;
+}
+
 .red-border {
-    border-color: var(--clr-danger);
+    border-color: var(--clr-danger) !important; 
 }
 
 .red-text {
     color: var(--clr-danger);
+}
+
+.background-red {
+    background-color: var(--clr-danger);
 }

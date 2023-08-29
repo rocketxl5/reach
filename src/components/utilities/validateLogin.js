@@ -1,8 +1,5 @@
 const validateLogin = (values) => {
-    const errors = {
-        email: '',
-        password: ''
-    }
+    const errors = {}
 
     // if email is empty
     if (!values.email.trim()) {

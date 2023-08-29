@@ -2,8 +2,8 @@ const validateRegister = (values) => {
     let errors = {}
 
     // Check for name
-    if (!values.name) {
-        errors.name = 'Name required'
+    if (!values.username) {
+        errors.username = 'Username required'
     }
 
     // Check for email
