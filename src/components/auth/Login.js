@@ -7,15 +7,41 @@ import { UserContext } from '../../contexts/UserContext'
 import access from '../../api/resources'
 
 function Login() {
-    const [credentials, setCredentials] = useState({})
+    const [userInput, setUserInput] = useState({})
     const [isValid, setIsValid] = useState(false)
 
+    const logUser = async (userInput) => {
+        try {
+            fetch(`/api/users/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userInput)
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    // useEffect(() => {
+    //     getData()
+    // })
+    // const getData = async () => {
+    //     const { data } = await axios.get(`${access.serverURL}/api/users`)
+    //     console.log(data)
+    // }
+
+
     const callback = (values) => {
-        setCredentials(values)
+        setUserInput(values)
         setIsValid(true)
     }
 
-    const { handleChange, handleSubmit, handleFocus, handleBlur, values, errors } = useFormValidation(
+    const { handleChange, handleFocus, handleBlur, handleSubmit, values, errors } = useFormValidation(
         callback,
         inputValidation,
         {
@@ -23,6 +49,14 @@ function Login() {
             password: ''
         }
     )
+
+    useEffect(() => {
+
+        if (isValid) {
+            logUser(userInput)
+        }
+    }, [isValid])
+
 
     return (
         <div className="container">

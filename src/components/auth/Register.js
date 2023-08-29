@@ -14,7 +14,7 @@ function Register() {
         setIsValid(true)
     }
 
-    const { handleChange, handleSubmit, handleFocus, handleBlur, values, errors } = useFormValidation(
+    const { handleChange, handleFocus, handleBlur, handleSubmit, values, errors } = useFormValidation(
         callback,
         inputValidation,
         {
@@ -24,6 +24,13 @@ function Register() {
             repeat_password: ''
         }
     )
+
+    useEffect(() => {
+
+        if (isValid) {
+
+        }
+    }, [isValid])
 
     return (
         <div className="container">

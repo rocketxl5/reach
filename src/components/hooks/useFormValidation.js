@@ -31,7 +31,6 @@ const useForm = (callback, inputValidation, state) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors(inputValidation(values))
-        console.log(values)
         setIsSubmit(true)
     }
 
@@ -39,9 +38,9 @@ const useForm = (callback, inputValidation, state) => {
         if (Object.keys(errors).length === 0 && isSubmit) {
             callback(values)
         }
-    }, [])
+    }, [errors])
 
-    return { handleChange, handleSubmit, handleFocus, handleBlur, values, errors }
+    return { handleChange, handleFocus, handleBlur, handleSubmit, values, errors }
 }
 
 export default useForm;
