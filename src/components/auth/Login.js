@@ -20,7 +20,14 @@ function Login() {
         }
         try {
             fetch(`${access.serverURL}/api/users/login`, options)
-                .then(res => res.json())
+                .then((res) => {
+                    if (res.ok) {
+                        return res.json()
+                    }
+                    return res.text().then((text) => {
+                        throw new Error(text);
+                    })
+                })
                 .then(data => console.log(data))
 
         } catch (error) {
