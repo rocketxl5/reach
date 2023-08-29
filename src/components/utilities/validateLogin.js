@@ -1,5 +1,9 @@
-const validate = (values) => {
-    const errors = {}
+const validateLogin = (values) => {
+    const errors = {
+        email: '',
+        password: ''
+    }
+
     // if email is empty
     if (!values.email.trim()) {
         errors.email = 'Email is required'
@@ -8,6 +12,8 @@ const validate = (values) => {
     if (!values.password) {
         errors.password = 'Password is required'
     }
+
+    return errors;
 }
 
-export default validate
+export default validateLogin

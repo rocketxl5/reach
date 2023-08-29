@@ -40,7 +40,7 @@
     padding: 1.25rem;
     font-size: var(--fs-400);
     border-radius: 5px;
-    border: 1px solid var(--clr-bg-body)
+    border: 1px solid var(--clr-bg-body);
 }
 
 .form-element input::placeholder {

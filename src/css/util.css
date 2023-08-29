@@ -17,3 +17,11 @@
 .center {
     text-align: center;
 }
+
+.red-border {
+    border-color: var(--clr-danger);
+}
+
+.red-text {
+    color: var(--clr-danger);
+}

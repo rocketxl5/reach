@@ -6,6 +6,7 @@
     --clr-bg-body: #dfd9d9;
     --clr-bg-header: #252525;
     --clr-light-border: rgba(163, 163, 163, 0.4); 
+    --clr-danger: #dc3545;
 
     /* font sizes */
     --fs-xl: clamp(2rem, 1vw + 2rem, 2.5rem);

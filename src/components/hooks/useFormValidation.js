@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react'
 
-const useForm = (validate, callback) => {
-    const [values, setValues] = useState({
-        email: '',
-        password: ''
-    })
-
+const useForm = (callback, validateFields, state) => {
+    const [values, setValues] = useState(state)
     const [errors, setErrors] = useState({})
-    const [isValid, setIsValid] = useState(false)
+    const [isSubmit, setIsSubmit] = useState(false)
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -20,18 +16,19 @@ const useForm = (validate, callback) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        setErrors(validate(values))
-        setIsValid(true)
+        console.log(values)
+        setErrors(validateFields(values))
+        setIsSubmit(true)
     }
 
     useEffect(() => {
-        if (Object.keys(errors).length === 0 && isValid) {
+        if (Object.keys(errors).length === 0 && isSubmit) {
+            setValues((values))
             callback(values)
         }
     }, [])
 
-    return { handleChange, handleSubmit }
+    return { handleChange, handleSubmit, values, errors }
 }
 
 export default useForm;
