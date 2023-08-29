@@ -19,7 +19,7 @@ function Login() {
             body: JSON.stringify(userInput)
         }
         try {
-            fetch(`${access.serverURL}/ api / users / login`, options)
+            fetch(`${access.serverURL}/api/users/login`, options)
                 .then(res => res.json())
                 .then(data => console.log(data))
 
