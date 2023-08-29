@@ -12,7 +12,7 @@ function Login() {
 
     const logUser = async (userInput) => {
         try {
-            fetch(`/api/users/login`, {
+            fetch(`${access.serverURL}/api/users/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
