@@ -11,14 +11,15 @@ function Login() {
     const [isValid, setIsValid] = useState(false)
 
     const logUser = async (userInput) => {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInput)
+        }
         try {
-            fetch(`${access.serverURL}/api/users/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userInput)
-            })
+            fetch(`/api/users/login`, options)
                 .then(res => res.json())
                 .then(data => console.log(data))
 
