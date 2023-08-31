@@ -25,7 +25,7 @@ function Login() {
             try {
                 // await fetch(`/api/users/login`, options)
                 await fetch(`${access.serverURL}/api/users/login`, options)
-                        .then((res) => res.text())
+                        .then((res) => res.json())
                         .then(data => console.log(data))
                     .catch(error => console.log(error))
 
