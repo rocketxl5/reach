@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import useFormValidation from '../hooks/useFormValidation'
 import inputValidation from '../utilities/validateLogin'
+import baseURL from '../utilities/baseURL'
 import { UserContext } from '../../contexts/UserContext'
-import access from '../../api/resources'
 
 function Login() {
+    const version = 'production'
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isValid, setIsValid] = useState(false)
@@ -18,15 +19,13 @@ function Login() {
                 password
             }
 
-            // console.log('userInput', userInput)
-            // console.log('Stringified', JSON.stringify(userInput))
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userInput),
             }
             try {
-                fetch(`https://reach-server.onrender.com/api/users/login`, options)
+                fetch(`${baseURL(version)}/api/users/login`, options)
                     .then((res) => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))

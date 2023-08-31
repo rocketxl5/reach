@@ -7,5 +7,3 @@ const access = {
     //   skryfallURL: API_URL,
     serverURL: BASE_URL,
 };
-
-export default access;
