@@ -11,7 +11,7 @@ function Login() {
     const [password, setPassword] = useState('')
     const [isValid, setIsValid] = useState(false)
 
-    const logUser = async (email, password, isValid) => {
+    const logUser = async (isValid) => {
         if (isValid) {
             const userInput = {
                 email,
@@ -25,7 +25,15 @@ function Login() {
             try {
                 // await fetch(`/api/users/login`, options)
                 await fetch(`${access.serverURL}/api/users/login`, options)
-                    .then(res => { return res.json() })
+                        .then((res) => {
+                            if (res.ok) {
+                                return res.json();
+                            }
+
+                            return res.text().then((text) => {
+                                throw new Error(text);
+                            })
+                        })
                     .then(data => console.log(data.data[0]))
                     .catch(error => console.log(error))
 
