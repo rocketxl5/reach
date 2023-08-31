@@ -25,16 +25,16 @@ function Login() {
             try {
                 // await fetch(`/api/users/login`, options)
                 await fetch(`${access.serverURL}/api/users/login`, options)
-                        .then((res) => {
-                            if (res.ok) {
-                                return res.json();
-                            }
+                    .then((res) => {
+                        if (res.ok) {
+                            return res.json();
+                        }
 
-                            return res.text().then((text) => {
-                                throw new Error(text);
-                            })
+                        return res.text().then((text) => {
+                            throw new Error(text);
                         })
-                    .then(data => console.log(data.data[0]))
+                    })
+                        .then(data => console.log(data))
                     .catch(error => console.log(error))
 
             } catch (error) {
