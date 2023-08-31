@@ -12,6 +12,7 @@ function Login() {
 
     const logUser = async (userInput, isValid) => {
         if (isValid) {
+            console.log(userInput)
             const options = {
                 method: 'POST',
                 headers: {
@@ -22,7 +23,7 @@ function Login() {
             try {
                 await fetch(`${access.serverURL}/api/users/login`, options)
                     .then(res => { return res.json() })
-                    .then(data => console.log(data))
+                    .then(data => console.log(data.data[0]))
                     .catch(error => console.log(error))
 
             } catch (error) {
