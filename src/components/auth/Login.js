@@ -20,9 +20,10 @@ function Login() {
                 body: JSON.stringify(userInput)
             }
             try {
-                const res = await fetch(`${access.serverURL}/api/users/login`, options)
-                const data = await res.json()
-                console.log(data)
+                await fetch(`${access.serverURL}/api/users/login`, options)
+                    .then(res => { return res.json() })
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
 
             } catch (error) {
                 console.log(error)
