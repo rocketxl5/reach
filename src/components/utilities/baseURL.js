@@ -1,5 +1,7 @@
-const baseURL = (version) => {
-    if (version === 'production') {
+const baseURL = () => {
+    const mode = 'dev'
+
+    if (mode === 'production') {
         return 'https://reach-server.onrender.com'
     }
 

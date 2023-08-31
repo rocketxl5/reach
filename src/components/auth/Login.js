@@ -1,22 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import useFormValidation from '../hooks/useFormValidation'
 import inputValidation from '../utilities/validateLogin'
 import baseURL from '../utilities/baseURL'
 import { UserContext } from '../../contexts/UserContext'
 
 function Login() {
-    const version = 'production'
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [input, setInput] = useState({})
     const [isValid, setIsValid] = useState(false)
 
     const logUser = (isValid) => {
         if (isValid) {
             const userInput = {
-                email,
-                password
+                email: input.email,
+                password: input.password
             }
 
             const options = {
@@ -25,7 +22,7 @@ function Login() {
                 body: JSON.stringify(userInput),
             }
             try {
-                fetch(`${baseURL(version)}/api/users/login`, options)
+                fetch(`${baseURL()}/api/users/login`, options)
                     .then((res) => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))
@@ -37,8 +34,7 @@ function Login() {
     }
 
     const callback = (values) => {
-        setEmail(values.email)
-        setPassword(values.password)
+        setInput(values)
         setIsValid(true)
     }
 
@@ -53,7 +49,7 @@ function Login() {
 
     useEffect(() => {
         if (isValid) {
-            logUser(email, password, isValid)
+            logUser(isValid)
         }
     }, [isValid])
 

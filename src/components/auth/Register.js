@@ -1,16 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import useFormValidation from '../hooks/useFormValidation'
 import inputValidation from '../utilities/validateRegister'
-import access from '../../api/resources'
+import baseURL from '../utilities/baseURL'
 
 function Register() {
-    const [profile, setProfile] = useState({})
+    const [input, setInput] = useState({})
     const [isValid, setIsValid] = useState(false)
 
+    const registerUser = (isValid) => {
+        if (isValid) {
+            const userInput = {
+                username: input.username,
+                email: input.email,
+                password: input.password,
+            }
+
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userInput)
+            }
+
+            try {
+                fetch(`${baseURL()}/api/users/register`, options)
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }
+
     const callback = (values) => {
-        setProfile(values)
+        setInput(values)
         setIsValid(true)
     }
 
@@ -28,7 +52,7 @@ function Register() {
     useEffect(() => {
 
         if (isValid) {
-
+            registerUser(isValid)
         }
     }, [isValid])
 
