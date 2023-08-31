@@ -10,39 +10,33 @@ function Login() {
     const [userInput, setUserInput] = useState({})
     const [isValid, setIsValid] = useState(false)
 
-    const logUser = (userInput) => {
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userInput)
-        }
-        try {
-            fetch(`${access.serverURL}/api/users/login`, options)
-                .then((res) => {
-                    if (res.ok) {
-                        return res.json()
-                    }
-                    return res.text().then((text) => {
-                        throw new Error(text);
+    const logUser = async (userInput, isValid) => {
+        if (isValid) {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userInput)
+            }
+            try {
+                await fetch(`${access.serverURL}/api/users/login`, options)
+                    .then((res) => {
+                        if (res.ok) {
+                            return res.json()
+                        }
+                        return res.text().then((text) => {
+                            throw new Error(text);
+                        })
                     })
-                })
-                .then(data => console.log(data))
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
 
-        } catch (error) {
-            console.log(error)
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
-
-    // useEffect(() => {
-    //     getData()
-    // })
-    // const getData = async () => {
-    //     const { data } = await axios.get(`${access.serverURL}/api/users`)
-    //     console.log(data)
-    // }
-
 
     const callback = (values) => {
         setUserInput(values)
@@ -60,7 +54,7 @@ function Login() {
 
     useEffect(() => {
         if (isValid) {
-            logUser(userInput)
+            logUser(userInput, isValid)
         }
     }, [isValid])
 
