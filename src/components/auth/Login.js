@@ -7,20 +7,23 @@ import { UserContext } from '../../contexts/UserContext'
 import access from '../../api/resources'
 
 function Login() {
-    const [userInput, setUserInput] = useState({})
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [isValid, setIsValid] = useState(false)
 
-    const logUser = async (userInput, isValid) => {
+    const logUser = async (email, password, isValid) => {
         if (isValid) {
-            console.log(userInput)
+            const userInput = {
+                email,
+                password
+            }
             const options = {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userInput)
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userInput),
             }
             try {
+                // await fetch(`/api/users/login`, options)
                 await fetch(`${access.serverURL}/api/users/login`, options)
                     .then(res => { return res.json() })
                     .then(data => console.log(data.data[0]))
@@ -33,7 +36,8 @@ function Login() {
     }
 
     const callback = (values) => {
-        setUserInput(values)
+        setEmail(values.email)
+        setPassword(values.password)
         setIsValid(true)
     }
 
@@ -48,7 +52,7 @@ function Login() {
 
     useEffect(() => {
         if (isValid) {
-            logUser(userInput, isValid)
+            logUser(email, password, isValid)
         }
     }, [isValid])
 
