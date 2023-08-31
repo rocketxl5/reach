@@ -11,30 +11,24 @@ function Login() {
     const [password, setPassword] = useState('')
     const [isValid, setIsValid] = useState(false)
 
-    const logUser = async (isValid) => {
+    const logUser = (isValid) => {
         if (isValid) {
             const userInput = {
                 email,
                 password
             }
+
+            // console.log('userInput', userInput)
+            // console.log('Stringified', JSON.stringify(userInput))
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userInput),
             }
             try {
-                // await fetch(`/api/users/login`, options)
-                await fetch(`${access.serverURL}/api/users/login`, options)
-                    .then((res) => {
-                        if (res.ok) {
-                            return res.json()
-                        }
-
-                        return res.text().then((text) => {
-                            throw new Error(text)
-                        })
-                    })
-                        .then(data => console.log(data))
+                fetch(`/api/users/login`, options)
+                    .then((res) => res.json())
+                    .then(data => console.log(data))
                     .catch(error => console.log(error))
 
             } catch (error) {
