@@ -10,7 +10,7 @@ function Login() {
     const [userInput, setUserInput] = useState({})
     const [isValid, setIsValid] = useState(false)
 
-    const logUser = async (userInput) => {
+    const logUser = (userInput) => {
         const options = {
             method: 'POST',
             headers: {
@@ -59,7 +59,6 @@ function Login() {
     )
 
     useEffect(() => {
-
         if (isValid) {
             logUser(userInput)
         }
