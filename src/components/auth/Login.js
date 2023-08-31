@@ -26,7 +26,7 @@ function Login() {
                 body: JSON.stringify(userInput),
             }
             try {
-                fetch(`https://reach-client.onrender.com/api/users/login`, options)
+                fetch(`https://reach-server.onrender.com/api/users/login`, options)
                     .then((res) => res.json())
                     .then(data => console.log(data))
                     .catch(error => console.log(error))

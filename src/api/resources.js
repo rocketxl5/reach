@@ -1,5 +1,5 @@
 
-const BASE_URL = 'https://reach-client.onrender.com';
+const BASE_URL = 'https://reach-server.onrender.com';
 // const BASE_URL = 'http://localhost:5001';
 // const API_URL = 'https://api.scryfall.com';
 
