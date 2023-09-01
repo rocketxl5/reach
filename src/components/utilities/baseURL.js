@@ -1,7 +1,7 @@
 const baseURL = () => {
-    const mode = 'production'
+    const inProduction = true
 
-    if (mode === 'production') {
+    if (inProduction) {
         return 'https://reach-server.onrender.com'
     }
 
