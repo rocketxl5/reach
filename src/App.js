@@ -8,6 +8,7 @@ import './css/reset.css';
 import './css/style.css';
 import './css/util.css';
 import './css/form.css';
+import ResetPassword from './components/auth/ResetPassword';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/register" element={<Register />} />
+      </Routes>
+      <Routes>
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </>
   )

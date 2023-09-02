@@ -51,10 +51,22 @@
     opacity: 0;
 }
 
+/* forgot password form-element*/
+.form-element:nth-last-child(2) {
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.reset-password {
+    flex-basis: calc(50% - 1rem);
+    text-align: center;
+}
+
+/* login form-element*/
 .form-element:last-of-type {
     display: flex;
     gap: 2rem;
-    /* flex-wrap: wrap; */
 }
 
 .form-element button {
@@ -79,6 +91,17 @@ button:hover {
     font-size: var(--fs-400);
     padding-block: 5px;
     text-align: center;
+}
+
+.form-error-message {
+    width: 100%;
+    margin-inline: auto;
+    margin-block-start: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--clr-danger);
+    border-radius: 5px;
+    color: var(--clr-danger);
+    background-color: rgba(220, 53, 69, 0.1);
 }
 
 @media screen and (width >= 25em) {

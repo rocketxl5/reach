@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useRef, useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import useFormValidation from '../hooks/useFormValidation'
 import inputValidation from '../utilities/validateLogin'
@@ -9,6 +9,7 @@ function Login() {
     const navigate = useNavigate()
     const [input, setInput] = useState({})
     const [isValid, setIsValid] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
     const logUser = (isValid) => {
         if (isValid) {
@@ -24,12 +25,23 @@ function Login() {
             }
             try {
                 fetch(`${baseURL()}/api/users/login`, options)
-                    .then((res) => res.json())
+                    .then((res) => {
+                        if (res.ok) {
+                            return res.json()
+                        }
+
+                        return res.json().then((data) => {
+                            throw new Error(JSON.stringify(data))
+                        })
+                    })
                     .then((data) => {
                         console.log(data)
                         navigate("/")
+                    }) 
+                    .catch(error => {
+                        console.log(error)
+                        setErrorMessage(error.message)
                     })
-                    .catch(error => console.log(error))
 
             } catch (error) {
                 console.log(error)
@@ -51,12 +63,19 @@ function Login() {
         }
     )
 
+    // Login 
     useEffect(() => {
         if (isValid) {
             logUser(isValid)
         }
     }, [isValid])
 
+    // error message handler
+    useEffect(() => {
+        if (errorMessage) {
+            document.querySelector('.form-error-message').innerHTML = errorMessage.replaceAll('"', '')
+        }
+    }, [errorMessage])
 
     return (
         <div className="container">
@@ -66,8 +85,11 @@ function Login() {
                 </div>
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="form-title">
-                        <h2>Sign in</h2>
+                        <h2>Log in to your account</h2>
                     </div>
+
+                    <p className={errorMessage ? 'form-error-message' : 'hide'}></p>
+
                     <div className="form-element">
                         <label htmlFor="name">Email</label>
                         <input
@@ -95,8 +117,11 @@ function Login() {
                             placeholder={errors.password ? errors.password : "Password"} />
                     </div>
                     <div className="form-element">
+                        <Link className="reset-password" to="/reset-password">Forgot password?</Link>
+                    </div>
+                    <div className="form-element">
                         <Link className="link" to="/register">Create account</Link>
-                        <button type="submit">Sign in</button>
+                        <button type="submit">Login</button>
                     </div>
                 </form>
             </div>

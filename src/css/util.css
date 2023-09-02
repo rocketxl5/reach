@@ -37,3 +37,7 @@
 .background-red {
     background-color: var(--clr-danger);
 }
+
+.hide {
+    display: none;
+}
