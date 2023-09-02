@@ -1,3 +1,11 @@
+/* Removing broser preset for input tags */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+}
+
 .form-content {
     min-width: min(100%, 31em);
     margin-block-start: 5rem;
@@ -39,6 +47,7 @@
     width: 100%;
     padding: 1.25rem;
     font-size: var(--fs-400);
+    background-color: #fff;
     border-radius: 5px;
     border: 1px solid var(--clr-bg-body);
 }
@@ -52,7 +61,7 @@
 }
 
 /* forgot password form-element*/
-.form-element:nth-last-child(2) {
+.login-form .form-element:nth-last-child(2) {
     /* border: 1px solid green; */
     display: flex;
     justify-content: flex-end;

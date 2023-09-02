@@ -83,7 +83,7 @@ function Login() {
                 <div className="form-logo">
                     <h1 className="center"><Link to="/">Reach</Link></h1>
                 </div>
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="form login-form" onSubmit={handleSubmit}>
                     <div className="form-title">
                         <h2>Log in to your account</h2>
                     </div>
