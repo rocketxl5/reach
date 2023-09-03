@@ -30,17 +30,22 @@ const useForm = (callback, inputValidation, state) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
         setErrors(inputValidation(values))
         setIsSubmit(true)
     }
 
     useEffect(() => {
+
         if (Object.keys(errors).length === 0 && isSubmit) {
+            console.log('values', values)
+            console.log('errors', errors)
+            console.log('isSubmit', isSubmit)
             callback(values)
         }
     }, [errors])
 
-    return { handleChange, handleFocus, handleBlur, handleSubmit, values, errors }
+    return { handleChange, handleFocus, handleBlur, handleSubmit, setValues, setIsSubmit, values, errors }
 }
 
 export default useForm;

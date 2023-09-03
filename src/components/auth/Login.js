@@ -10,6 +10,7 @@ function Login() {
     const [input, setInput] = useState({})
     const [isValid, setIsValid] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const { setUser } = useContext(UserContext)
 
     const logUser = (isValid) => {
         if (isValid) {
@@ -35,12 +36,22 @@ function Login() {
                         })
                     })
                     .then((data) => {
-                        console.log(data)
+                        setUser(data)
                         navigate("/")
                     }) 
                     .catch(error => {
                         console.log(error)
                         setErrorMessage(error.message)
+                        // clear input fields
+                        setValues({
+                            email: '',
+                            password: ''
+                        })
+                        // invalid values
+                        setIsValid(false)
+                        // reset submit to false
+                        // prevents error-message css class to be added to input fields on blur in useFormValidation
+                        // setIsSubmit(false)
                     })
 
             } catch (error) {
@@ -50,11 +61,13 @@ function Login() {
     }
 
     const callback = (values) => {
+        console.log('values', values)
+        console.log('isValid', isValid)
         setInput(values)
         setIsValid(true)
     }
 
-    const { handleChange, handleFocus, handleBlur, handleSubmit, values, errors } = useFormValidation(
+    const { handleChange, handleFocus, handleBlur, handleSubmit, setValues, values, errors } = useFormValidation(
         callback,
         inputValidation,
         {
@@ -87,9 +100,7 @@ function Login() {
                     <div className="form-title">
                         <h2>Log in to your account</h2>
                     </div>
-
                     <p className={errorMessage ? 'form-error-message' : 'hide'}></p>
-
                     <div className="form-element">
                         <label htmlFor="name">Email</label>
                         <input
@@ -120,7 +131,7 @@ function Login() {
                         <Link className="reset-password" to="/reset-password">Forgot password?</Link>
                     </div>
                     <div className="form-element">
-                        <Link className="link" to="/register">Create account</Link>
+                        <Link className="link" to="/signup">Create account</Link>
                         <button type="submit">Login</button>
                     </div>
                 </form>
