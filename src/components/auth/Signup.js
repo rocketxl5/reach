@@ -20,13 +20,24 @@ function Signup() {
 
             const options = {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
                 body: JSON.stringify(userInput)
             }
 
             try {
                 fetch(`${baseURL()}/api/users/signup`, options)
-                    .then(res => res.json())
+                    .then((res) => {
+                        if (res.ok) {
+                            return res.json()
+                        }
+
+                        return res.json().then((data) => {
+                            throw new Error(data)
+                        })
+                    })
                     .then(data => {
                         console.log(data)
                         navigate("/success")
@@ -37,7 +48,7 @@ function Signup() {
                         setIsValid(false)
                     })
             } catch (error) {
-                console.log(error)
+                setErrorMessage(error.message)
             }
         }
     }
@@ -59,11 +70,17 @@ function Signup() {
     )
 
     useEffect(() => {
-
         if (isValid) {
             signupUser(isValid)
-        }
+        } 
     }, [isValid])
+
+    // error message handler
+    useEffect(() => {
+        if (errorMessage) {
+            document.querySelector('.form-error-message').innerHTML = errorMessage
+        }
+    }, [errorMessage])
 
     return (
         <div className="container">
