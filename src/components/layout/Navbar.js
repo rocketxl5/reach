@@ -1,10 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import hideShowMenu from '../utilities/hideShowMenu'
 
-function Navbar() {
+
+
+function Navbar({ isFirefox }) {
+    const { handleChange } = hideShowMenu()
+
+
     return (
         <div className="navbar">
-            <input type="checkbox" id="mobile-nav" />
+            <input type="checkbox" id="mobile-nav" onChange={() => isFirefox && handleChange(document.querySelector('header'))} />
             <nav>
                 <section className="left-side">
                     <h1 className="logo">Reach</h1>

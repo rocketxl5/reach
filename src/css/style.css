@@ -156,30 +156,35 @@ nav .right-side a:nth-of-type(2) {
     bottom: 5px;
 }
 
-header:has(input:checked) .mobile-nav-label::before {
+/* hamburger animation */
+/* 'checked' class name option for Firebox browser added to header @ main.js */
+header:has(input:checked) .mobile-nav-label::before,
+header.checked .mobile-nav-label::before {
     transform: rotate(-45deg) translate(-6px, 8px);
-
 }
 
-header:has(input:checked) .mobile-nav-label::after {
+header:has(input:checked) .mobile-nav-label::after,
+header.checked .mobile-nav-label::after {
     transform: rotate(45deg) translate(-6px, -8px);
-
 }
 
-header:has(input:checked) .mobile-nav-label span {
-    opacity: 0;
-}
-
-header:has(input:checked) .mobile-nav-label {
+header:has(input:checked) .mobile-nav-label,
+header.checked .mobile-nav-label {
     background-color: var(--clr-header);   
 }
 
-header:has(input:checked) nav ul {
+header:has(input:checked) .mobile-nav-label span,
+header.checked .mobile-nav-label span {
+    opacity: 0;
+}
+
+header:has(input:checked) nav ul,
+header.checked nav ul {
     left: 0;
 }
 
-body:has(input:checked)  {
-    overflow-y: hidden;
+body:has(input:checked) {
+    /* overflow-y: hidden; */
 }
 
 @media screen and (width >= 45em) {
