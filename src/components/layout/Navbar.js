@@ -19,12 +19,12 @@ function Navbar({ isFirefox }) {
                         <li><Link className="nav-link" to="#"><span>Team</span></Link></li>
                         <li><Link className="nav-link" to="#"><span>About</span></Link></li>
                         <li><Link className="nav-link" to="#"><span>Contact</span></Link></li>
-                        <li><Link className="nav-link" to="/register"><span>Create account</span></Link></li>
+                        <li><Link className="nav-link" to="/signup"><span>Create account</span></Link></li>
                     </ul>
                 </section>
                 <section className="right-side">
                     <Link to="/login">Sign in</Link>
-                    <Link to="/register">Sign up</Link>
+                    <Link to="/signup">Sign up</Link>
                     <label htmlFor="mobile-nav" className="mobile-nav-label">
                         <span></span>
                     </label>

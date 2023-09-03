@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useFormValidation from '../hooks/useFormValidation'
-import inputValidation from '../utilities/validateRegister'
+import inputValidation from '../utilities/validateSignup'
 import baseURL from '../utilities/baseURL'
 
-function Register() {
+function Signup() {
+    const navigate = useNavigate()
     const [input, setInput] = useState({})
     const [isValid, setIsValid] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
-    const registerUser = (isValid) => {
+    const signupUser = (isValid) => {
         if (isValid) {
             const userInput = {
                 username: input.username,
@@ -23,10 +25,17 @@ function Register() {
             }
 
             try {
-                fetch(`${baseURL()}/api/users/register`, options)
+                fetch(`${baseURL()}/api/users/signup`, options)
                     .then(res => res.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.log(error))
+                    .then(data => {
+                        console.log(data)
+                        navigate("/success")
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        setErrorMessage(error.message)
+                        setIsValid(false)
+                    })
             } catch (error) {
                 console.log(error)
             }
@@ -52,7 +61,7 @@ function Register() {
     useEffect(() => {
 
         if (isValid) {
-            registerUser(isValid)
+            signupUser(isValid)
         }
     }, [isValid])
 
@@ -66,6 +75,7 @@ function Register() {
                     <div className="form-title">
                         <h2>Create account</h2>
                     </div>
+                    <p className={errorMessage ? 'form-error-message' : 'hide'}></p>
                     <div className="form-element">
                         <label htmlFor="username">Username</label>
                         <input
@@ -81,7 +91,7 @@ function Register() {
                         />
                     </div>
                     <div className="form-element">
-                        <label htmlFor="email">Email</label>                        
+                        <label htmlFor="email">Email</label>
                         <input
                             className={errors.email && 'input-error'}
                             id="email"
@@ -95,7 +105,7 @@ function Register() {
                         />
                     </div>
                     <div className="form-element">
-                        <label htmlFor="password">Password</label>                        
+                        <label htmlFor="password">Password</label>
                         <input
                             className={errors.password && 'input-error'}
                             id="password"
@@ -109,7 +119,7 @@ function Register() {
                         />
                     </div>
                     <div className="form-element">
-                        <label htmlFor="password_repeat">Repeat password</label>                        
+                        <label htmlFor="password_repeat">Repeat password</label>
                         <input
                             className={errors.repeat_password && 'input-error'}
                             id="repeat_password"
@@ -132,4 +142,4 @@ function Register() {
     )
 }
 
-export default Register;
+export default Signup;
