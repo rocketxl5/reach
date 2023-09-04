@@ -97,7 +97,7 @@ function Login() {
     // error message handler
     useEffect(() => {
         if (errorMessage) {
-            document.querySelector('.form-error-message').innerHTML = errorMessage.replaceAll('"', '')
+            document.querySelector('.show-error-message').innerHTML = errorMessage.replaceAll('"', '')
         }
     }, [errorMessage])
 

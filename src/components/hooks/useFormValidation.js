@@ -38,7 +38,6 @@ const useForm = (callback, inputValidation, state) => {
             document.activeElement.blur()
         }
         setIsMatch(values.password === values.repeat_password)
-        console.log(values)
         setErrors(inputValidation(values))
         setIsSubmit(true)
     }
