@@ -78,7 +78,7 @@ input:-webkit-autofill:active{
 
 /* login form-element*/
 .form-element:last-of-type,
-.form-element:nth-last-child(2) {
+.login-form  .from.form-element:nth-last-child(2) {
     display: flex;
     gap: 2rem;
 }
@@ -107,7 +107,7 @@ button:hover {
     text-align: center;
 }
 
-.form-error-message {
+.show-error-message {
     max-width: 99%;
     margin-inline: auto;
     margin-block-start: 2rem;
@@ -116,6 +116,14 @@ button:hover {
     border-radius: 5px;
     color: var(--clr-danger);
     background-color: rgba(220, 53, 69, 0.1);
+}
+
+.input-error {
+    border-color: var(--clr-danger) !important; 
+}
+
+.input-error::placeholder {
+    color: var(--clr-danger) !important;
 }
 
 @media screen and (width >= 25em) {

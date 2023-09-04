@@ -22,12 +22,13 @@ const validateRegister = (values) => {
     }
 
     // Check if passwords match
-    if (values.password && values.repeat_password) {
-        if (values.password !== values.repeat_password) {
-            errors.password = "Passwords don't match"
-            errors.repeat_password = "Passwords don't match"
-        }
-    }
+    // if (values.password && values.repeat_password) {
+    //     if (values.password !== values.repeat_password) {
+    //         errors.matching_passwords = 'Passwords do not match'
+    //     }
+    // }
+
+
 
     return errors
 };

@@ -111,7 +111,7 @@ function Login() {
                     <div className="form-title">
                         <h2>Log in to your account</h2>
                     </div>
-                    <p className={errorMessage ? 'form-error-message' : 'hide'}></p>
+                    <p className={errorMessage ? 'show-error-message' : 'hide'}></p>
                     <div className="form-element">
                         <label htmlFor="name">Email</label>
                         <input

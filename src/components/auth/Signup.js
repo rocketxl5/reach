@@ -15,7 +15,7 @@ function Signup() {
             const userInput = {
                 username: input.username,
                 email: input.email,
-                password: input.password,
+                password: isMatch && input.password,
             }
 
             const options = {
@@ -58,7 +58,7 @@ function Signup() {
         setIsValid(true)
     }
 
-    const { handleChange, handleFocus, handleBlur, handleSubmit, values, errors } = useFormValidation(
+    const { handleChange, handleFocus, handleBlur, handleSubmit, isMatch, values, errors } = useFormValidation(
         callback,
         inputValidation,
         {
@@ -78,9 +78,15 @@ function Signup() {
     // error message handler
     useEffect(() => {
         if (errorMessage) {
-            document.querySelector('.form-error-message').innerHTML = errorMessage
+            document.querySelector('.show-error-message').innerHTML = errorMessage
         }
     }, [errorMessage])
+
+    // useEffect(() => {
+    //     if (errors.matching_passwords) {
+    //         setErrorMessage(errors.matching_passwords)
+    //     }
+    // }, [errors])
 
     return (
         <div className="container">
@@ -92,7 +98,7 @@ function Signup() {
                     <div className="form-title">
                         <h2>Create account</h2>
                     </div>
-                    <p className={errorMessage ? 'form-error-message' : 'hide'}></p>
+                    <p className={errorMessage ? 'show-error-message' : 'hide'}></p>
                     <div className="form-element">
                         <label htmlFor="username">Username</label>
                         <input
