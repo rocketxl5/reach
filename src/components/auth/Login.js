@@ -140,7 +140,7 @@ function Login() {
                     </div>
                     <div className="form-element">
                         <Link className="reset-password" to="/reset-password">Forgot password?</Link>
-                        <p className="show-password" onClick={handleClick} title="Show password">Show password</p>
+                        <p className="show-password" onClick={handleClick}>{!showPassword ? 'Show password' : 'Hide password'}</p>
                     </div>
                     <div className="form-element">
                         <Link className="link" to="/signup">Create account</Link>
