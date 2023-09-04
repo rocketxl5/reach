@@ -69,13 +69,16 @@ input:-webkit-autofill:active{
     justify-content: flex-end;
 }
 
-.reset-password {
+.reset-password,
+.show-password {
     flex-basis: calc(50% - 1rem);
     text-align: center;
+    cursor: pointer;
 }
 
 /* login form-element*/
-.form-element:last-of-type {
+.form-element:last-of-type,
+.form-element:nth-last-child(2) {
     display: flex;
     gap: 2rem;
 }
@@ -105,7 +108,7 @@ button:hover {
 }
 
 .form-error-message {
-    width: 100%;
+    max-width: 99%;
     margin-inline: auto;
     margin-block-start: 2rem;
     padding: 1rem;

@@ -10,6 +10,7 @@ function Login() {
     const [input, setInput] = useState({})
     const [isValid, setIsValid] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     const { setUser } = useContext(UserContext)
 
     const logUser = (isValid) => {
@@ -32,6 +33,7 @@ function Login() {
                         }
 
                         return res.json().then((data) => {
+
                             throw new Error(JSON.stringify(data))
                         })
                     })
@@ -76,6 +78,15 @@ function Login() {
         }
     )
 
+    const handleClick = () => {
+        !showPassword ? setShowPassword(true) : setShowPassword(false)
+    }
+
+    // Show/hide password
+    useEffect(() => {
+        document.querySelector('#password').type = showPassword ? 'text' : 'password'
+    }, [showPassword])
+
     // Login 
     useEffect(() => {
         if (isValid) {
@@ -105,7 +116,7 @@ function Login() {
                         <label htmlFor="name">Email</label>
                         <input
                             className={errors.email && 'input-error'}
-                            type="text"
+                            type="email"
                             name="email"
                             id="email"
                             value={values.email}
@@ -129,6 +140,7 @@ function Login() {
                     </div>
                     <div className="form-element">
                         <Link className="reset-password" to="/reset-password">Forgot password?</Link>
+                        <p className="show-password" onClick={handleClick} title="Show password">Show password</p>
                     </div>
                     <div className="form-element">
                         <Link className="link" to="/signup">Create account</Link>
