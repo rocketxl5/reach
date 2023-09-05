@@ -14,10 +14,6 @@
     padding-block: var(--size-3);
 }
 
-.center {
-    text-align: center;
-}
-
 .red-border {
     border-color: var(--clr-danger) !important; 
 }
@@ -54,6 +50,10 @@
     justify-content: center;
 }
 
+.justify-end {
+    justify-content: end;
+}
+
 .align-self-center {
     align-self: center;
 }
@@ -62,13 +62,25 @@
     justify-self: center;
 }
 
-.check-icon {
-    color: var(--clr-success);
-    font-size: 4rem;
+.center {
+    text-align: center;
 }
 
-.btn {
+.inline-block {
+    display: inline-block;
+}
 
+.block {
+    display: block;
+}
+
+.content-height {
+    height: max-content;
+}
+
+
+.btn {
+    
 }
 
 .btn-small {

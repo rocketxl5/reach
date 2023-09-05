@@ -127,6 +127,7 @@ function Login() {
                     </div>
                     <div className="form-element">
                         <label htmlFor="password">Password</label>
+                        <div className="login-password center content-height flex">
                         <input
                             className={errors.password && 'input-error'}
                             type="password"
@@ -137,10 +138,13 @@ function Login() {
                             onBlur={handleBlur}
                             onFocus={handleFocus}
                             placeholder={errors.password ? errors.password : "Password"} />
+                            <span className="flex align-center" onClick={handleClick}>
+                                <i className={!showPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
+                            </span>
+                        </div>
                     </div>
-                    <div className="form-element">
-                        <Link className="reset-password link" to="/reset-password">Forgot password?</Link>
-                        <p className="show-password link" onClick={handleClick}>{!showPassword ? 'Show password' : 'Hide password'}</p>
+                    <div className="form-element flex justify-end">
+                        <Link className="reset-password center" to="/reset-password">Forgot password?</Link>
                     </div>
                     <div className="form-element">
                         <Link className="link" to="/signup">Create account</Link>

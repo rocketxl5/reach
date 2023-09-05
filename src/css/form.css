@@ -64,8 +64,34 @@ input:-webkit-autofill:active{
 }
 
 /* login form-element*/
-.form-element:last-of-type,
-.login-form  .form-element:nth-last-child(2) {
+.login-password {
+    background-color: #fff;
+    border: 1px solid var(--clr-bg-body);
+    border-radius: 5px;
+}
+
+.login-password input {
+    border: none;
+    border-radius: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.login-password span {
+    padding-inline: 3%;
+    cursor: pointer;
+}
+
+.login-password i {
+    font-size: var(--fs-600);
+    color: #c9c9c9;
+}
+
+.reset-password {
+    flex-basis: calc(50% - 1rem);
+}
+
+.form-element:last-of-type {
     display: flex;
     gap: 2rem;
 }
@@ -88,8 +114,7 @@ button:hover {
 .form-element .link {
     flex-basis: 100%;
     align-self: center;
-    display: inline-block;
-    font-size: var(--fs-300);
+    font-size: var(--fs-400);
     padding-block: 5px;
     text-align: center;
 }
