@@ -102,7 +102,7 @@ function Login() {
     }, [errorMessage])
 
     return (
-        <div className="container">
+        <div className="container flex justify-center">
             <div className="form-content">
                 <div className="form-logo">
                     <h1 className="center"><Link to="/">Reach</Link></h1>
@@ -139,8 +139,8 @@ function Login() {
                             placeholder={errors.password ? errors.password : "Password"} />
                     </div>
                     <div className="form-element">
-                        <Link className="reset-password" to="/reset-password">Forgot password?</Link>
-                        <p className="show-password" onClick={handleClick}>{!showPassword ? 'Show password' : 'Hide password'}</p>
+                        <Link className="reset-password link" to="/reset-password">Forgot password?</Link>
+                        <p className="show-password link" onClick={handleClick}>{!showPassword ? 'Show password' : 'Hide password'}</p>
                     </div>
                     <div className="form-element">
                         <Link className="link" to="/signup">Create account</Link>

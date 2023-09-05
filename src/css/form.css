@@ -9,6 +9,7 @@ input:-webkit-autofill:active{
 }
 
 .form-content {
+    height: fit-content;
     min-width: min(100%, 31em);
     margin-block-start: 5rem;
 }
@@ -62,23 +63,9 @@ input:-webkit-autofill:active{
     opacity: 0;
 }
 
-/* forgot password form-element*/
-.login-form .form-element:nth-last-child(2) {
-    /* border: 1px solid green; */
-    display: flex;
-    justify-content: flex-end;
-}
-
-.reset-password,
-.show-password {
-    flex-basis: calc(50% - 1rem);
-    text-align: center;
-    cursor: pointer;
-}
-
 /* login form-element*/
 .form-element:last-of-type,
-.login-form  .from.form-element:nth-last-child(2) {
+.login-form  .form-element:nth-last-child(2) {
     display: flex;
     gap: 2rem;
 }
@@ -101,8 +88,8 @@ button:hover {
 .form-element .link {
     flex-basis: 100%;
     align-self: center;
-    /* display: inline-block; */
-    font-size: var(--fs-400);
+    display: inline-block;
+    font-size: var(--fs-300);
     padding-block: 5px;
     text-align: center;
 }

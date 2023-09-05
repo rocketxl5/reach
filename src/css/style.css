@@ -7,13 +7,14 @@
     --clr-bg-header: #252525;
     --clr-light-border: rgba(163, 163, 163, 0.4); 
     --clr-danger: rgb(220, 53, 69);
+    --clr-success: rgb(34, 170, 68);
 
     /* font sizes */
     --fs-xl: clamp(2rem, 1vw + 2rem, 2.5rem);
     --fs-600: 2rem;
     --fs-500: 1.75rem;
     --fs-400: 1.5rem;
-    --fs-300: 1.25;
+    --fs-300: 1.25rem;
     --fs-100: 1rem;
     
     /* size */
@@ -38,10 +39,6 @@ body {
 
 .container {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
     margin-inline: auto;
 }
 
@@ -106,13 +103,13 @@ nav .right-side {
 }
 
 nav .right-side a {
-    display: inline-block;
+    /* display: inline-block;
     min-width: 5em;
     text-align: center;
     padding-block: 0.5rem;
     color: var(--clr-body);
     border: 1px solid var(--clr-bg-body);
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 
 nav .right-side a:nth-of-type(2) {

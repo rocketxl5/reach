@@ -33,3 +33,50 @@
 .hide {
     display: none;
 }
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.justify-self-center {
+    justify-self: center;
+}
+
+.check-icon {
+    color: var(--clr-success);
+    font-size: 4rem;
+}
+
+.btn {
+
+}
+
+.btn-small {
+    display: inline-block;
+    min-width: 5em;
+    text-align: center;
+    padding-block: 0.5rem;
+    color: var(--clr-body);
+    border: 1px solid var(--clr-bg-body);
+    border-radius: 5px;
+}

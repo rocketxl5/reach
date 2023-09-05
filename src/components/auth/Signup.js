@@ -39,11 +39,9 @@ function Signup() {
                         })
                     })
                     .then(data => {
-                        console.log(data)
-                        navigate("/success")
+                        navigate('/success', { state: { message: data } })
                     })
                     .catch(error => {
-                        console.log(error)
                         setErrorMessage(error.message)
                         setIsValid(false)
                     })
@@ -82,14 +80,8 @@ function Signup() {
         }
     }, [errorMessage])
 
-    // useEffect(() => {
-    //     if (errors.matching_passwords) {
-    //         setErrorMessage(errors.matching_passwords)
-    //     }
-    // }, [errors])
-
     return (
-        <div className="container">
+        <div className="container flex justify-center">
             <div className="form-content">
                 <div className="form-logo">
                     <h1 className="center"><Link to="/">Reach</Link></h1>
