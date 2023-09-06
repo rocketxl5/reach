@@ -138,9 +138,9 @@ function Login() {
                                 onFocus={handleFocus}
                                 placeholder={errors.password ? errors.password : "Password"}
                             />
-                            <span className="flex align-center justify-center" onClick={handleClick}>
+                            <button className="password-btn flex align-center justify-center" onClick={handleClick}>
                                 <i className={!showPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
-                            </span>
+                            </button>
                         </div>
                     </div>
                     <div className="form-element flex justify-end">
@@ -148,7 +148,7 @@ function Login() {
                     </div>
                     <div className="form-element">
                         <Link className="link" to="/signup">Create account</Link>
-                        <button type="submit">Login</button>
+                        <button className="login-btn" type="submit">Login</button>
                     </div>
                 </form>
             </div>
