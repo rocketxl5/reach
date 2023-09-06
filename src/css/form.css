@@ -78,11 +78,12 @@ input:-webkit-autofill:active{
 }
 
 .login-password span {
-    padding-inline: 3%;
-    cursor: pointer;
+    width: 15%;
+    /* cursor: pointer; */
 }
 
 .login-password i {
+    pointer-events: none;
     font-size: var(--fs-500);
     color: #c9c9c9;
 }

@@ -127,18 +127,18 @@ function Login() {
                     </div>
                     <div className="form-element">
                         <label htmlFor="password">Password</label>
-                        <div className="login-password center content-height flex">
-                        <input
-                            className={errors.password && 'input-error'}
-                            type="password"
-                            name="password"
-                            id="password"
-                            value={values.password}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
-                            placeholder={errors.password ? errors.password : "Password"} />
-                            <span className="flex align-center" onClick={handleClick}>
+                        <div className={`login-password center content-height flex ${errors.password && 'input-error'}`}>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                value={values.password}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                onFocus={handleFocus}
+                                placeholder={errors.password ? errors.password : "Password"}
+                            />
+                            <span className="flex align-center justify-center" onClick={handleClick}>
                                 <i className={!showPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"}></i>
                             </span>
                         </div>

@@ -21,15 +21,6 @@ const validateRegister = (values) => {
         errors.repeat_password = 'Password Required'
     }
 
-    // Check if passwords match
-    // if (values.password && values.repeat_password) {
-    //     if (values.password !== values.repeat_password) {
-    //         errors.matching_passwords = 'Passwords do not match'
-    //     }
-    // }
-
-
-
     return errors
 };
 
