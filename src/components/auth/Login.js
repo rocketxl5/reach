@@ -78,7 +78,8 @@ function Login() {
         }
     )
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault()
         !showPassword ? setShowPassword(true) : setShowPassword(false)
     }
 
@@ -129,6 +130,7 @@ function Login() {
                         <label htmlFor="password">Password</label>
                         <div className={`login-password center content-height flex ${errors.password && 'input-error'}`}>
                             <input
+                                className={errors.password && 'input-error'}
                                 type="password"
                                 name="password"
                                 id="password"
