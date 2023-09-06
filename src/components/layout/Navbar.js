@@ -4,13 +4,13 @@ import hideShowMenu from '../utilities/hideShowMenu'
 
 
 
-function Navbar({ isFirefox }) {
+function Navbar({ userAgent }) {
     const { handleChange } = hideShowMenu()
 
 
     return (
         <div className="navbar">
-            <input type="checkbox" id="mobile-nav" onChange={() => isFirefox && handleChange(document.querySelector('header'))} />
+            <input type="checkbox" id="mobile-nav" onChange={() => userAgent.includes('firefox') && handleChange(document.querySelector('header'))} />
             <nav>
                 <section className="left-side">
                     <h1 className="logo">Reach</h1>
@@ -30,7 +30,6 @@ function Navbar({ isFirefox }) {
                     </label>
                 </section>
             </nav>
-
         </div>
     )
 }

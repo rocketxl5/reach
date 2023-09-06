@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 
 function Header() {
-    const [isFirefox, setIsFirefox] = useState(false)
+    const [userAgent, setUserAgent] = useState('')
 
     useEffect(() => {
-        setIsFirefox(window.navigator.userAgent.includes('Firefox'))
+        setUserAgent(window.navigator.userAgent.toLowerCase())
     }, [])
+
     return (
         <header className="main-header">
-            <Navbar isFirefox={isFirefox} />
+            <Navbar isFirefox={userAgent} />
+            <div>{userAgent}</div>
         </header>
     )
 }
