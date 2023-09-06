@@ -79,6 +79,7 @@ function Login() {
     )
 
     const handleClick = (e) => {
+        // Prevents firing form
         e.preventDefault()
         !showPassword ? setShowPassword(true) : setShowPassword(false)
     }

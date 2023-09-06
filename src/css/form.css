@@ -93,7 +93,7 @@ input:-webkit-autofill:active{
 
 .login-password i {
     pointer-events: none;
-    font-size: var(--fs-500);
+    font-size: var(--fs-400);
     color: #c9c9c9;
 }
 
@@ -155,9 +155,12 @@ input:-webkit-autofill:active{
     }
 
     .form-element input,
-    .form-element .login-btn,
-    .login-password i {
+    .form-element .login-btn {
         font-size: var(--fs-600);
+    }
+
+    .login-password i {
+        font-size: var(--fs-500);
     }
 }
 
