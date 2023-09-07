@@ -13,12 +13,12 @@ function Navbar() {
         }
     }, [isFirefox])
 
-    useEffect(() => {
-        if (isChrome) {
-            setTarget(document.querySelector('.mobile-nav-label'))
-            target.classList.add('animate-menu')
-        }
-    }, [isChrome])
+    // useEffect(() => {
+    //     if (isChrome) {
+    //         setTarget(document.querySelector('.mobile-nav-label'))
+    //         target.classList.add('animate-menu')
+    //     }
+    // }, [isChrome])
 
     return (
         <div className="navbar">
