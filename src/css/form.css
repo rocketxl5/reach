@@ -91,7 +91,7 @@ input:-webkit-autofill:active{
 }
 
 .login-password i {
-    font-size: var(--fs-400);
+    font-size: var(--fs-500);
     color: #c9c9c9;
 }
 

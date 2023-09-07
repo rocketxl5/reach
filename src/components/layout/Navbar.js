@@ -6,7 +6,7 @@ import useSetBrowser from '../hooks/useSetBrowser'
 
 function Navbar() {
     const [target, setTarget] = useState({})
-    const { isFirefox, isChrome } = useSetBrowser()
+    const { isFirefox } = useSetBrowser()
 
     useEffect(() => {
         if (isFirefox) {
@@ -15,10 +15,8 @@ function Navbar() {
     }, [isFirefox])
 
     useEffect(() => {
-        if (isChrome) {
-            animateMenu()
-        }
-    }, [isChrome])
+        animateMenu(document.querySelector('.mobile-nav-label'))
+    }, [])
 
     return (
         <div className="navbar">
