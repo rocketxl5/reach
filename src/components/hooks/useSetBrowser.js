@@ -8,7 +8,7 @@ const useSetBrowser = () => {
     useEffect(() => {
         const handleSetBrowser = () => {
             const userAgent = window.navigator.userAgent.toLowerCase()
-            console.log('handlebrowser')
+
             if (userAgent.includes('firefox')) {
                 setFirefox(true)
                 setTarget(document.querySelector('header'))
@@ -22,7 +22,7 @@ const useSetBrowser = () => {
         window.addEventListener('load', handleSetBrowser)
 
         return () => {
-            console.log('return')
+
             window.removeEventListener('load', handleSetBrowser)
         }
     }, [])
