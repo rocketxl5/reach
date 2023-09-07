@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import toggleClass from '../utilities/toggleClass'
-import animateMenu from '../utilities/animateMenu'
 import useSetBrowser from '../hooks/useSetBrowser'
 
 function Navbar() {
     const [target, setTarget] = useState({})
-    const { isFirefox } = useSetBrowser()
+    const { isFirefox, isChrome } = useSetBrowser()
 
     useEffect(() => {
         if (isFirefox) {
@@ -15,8 +14,11 @@ function Navbar() {
     }, [isFirefox])
 
     useEffect(() => {
-        animateMenu(document.querySelector('.mobile-nav-label'))
-    }, [])
+        if (isChrome) {
+            setTarget(document.querySelector('.mobile-nav-label'))
+            target.classList.add('animate-menu')
+        }
+    }, [isChrome])
 
     return (
         <div className="navbar">
