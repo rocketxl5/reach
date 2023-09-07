@@ -152,14 +152,14 @@ nav .right-side a:nth-of-type(2) {
 /* 'checked' class name option for Firebox browser added to header @ main.js */
 header:has(input:checked) .mobile-nav-label::before,
 header.checked .mobile-nav-label::before {
-    /* rotate: -45deg;
-    translate: -1px 10px; */
+    rotate: -45deg;
+    translate: -1px 10px;
 }
 
 header:has(input:checked) .mobile-nav-label::after,
 header.checked .mobile-nav-label::after {
-    /* rotate: 45deg;
-    translate:-1px -10px; */
+    rotate: 45deg;
+    translate:-1px -10px;
 }
 
 header:has(input:checked) .mobile-nav-label,
@@ -169,7 +169,7 @@ header.checked .mobile-nav-label {
 
 header:has(input:checked) .mobile-nav-label span,
 header.checked .mobile-nav-label span {
-    /* opacity: 0; */
+    opacity: 0;
 }
 
 header:has(input:checked) nav ul,
