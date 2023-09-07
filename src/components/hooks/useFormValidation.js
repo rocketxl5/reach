@@ -52,4 +52,4 @@ const useForm = (callback, inputValidation, state) => {
     return { handleChange, handleFocus, handleBlur, handleSubmit, setValues, setIsSubmit, isMatch, values, errors }
 }
 
-export default useForm;
+export default useForm

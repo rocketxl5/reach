@@ -149,7 +149,7 @@ function Signup() {
                     </div>
                     <div className="form-element">
                         <Link className="link" to="/login">Already a member?</Link>
-                        <button type="submit">Submit</button>
+                        <button className="btn" type="submit">Submit</button>
                     </div>
                 </form>
             </div >

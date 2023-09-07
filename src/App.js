@@ -1,14 +1,15 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './components/views/Home';
-import Login from './components/auth/Login';
-import Signup from './components/auth/Signup';
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/views/Home'
+import Footer from './components/layout/Footer'
+import Login from './components/auth/Login'
+import Signup from './components/auth/Signup'
 import Success from './components/auth/Success'
-import './css/reset.css';
-import './css/style.css';
-import './css/util.css';
-import './css/form.css';
-import ResetPassword from './components/auth/ResetPassword';
+import ResetPassword from './components/auth/ResetPassword'
+import './css/reset.css'
+import './css/style.css'
+import './css/util.css'
+import './css/form.css'
 
 
 function App() {
@@ -30,8 +31,9 @@ function App() {
       <Routes>
         <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
+      <Footer />
     </>
   )
 }
 
-export default App;
+export default App

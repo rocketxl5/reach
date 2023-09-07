@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import hideShowMenu from '../utilities/hideShowMenu'
+import toggleClass from '../utilities/toggleClass'
+import animateMenu from '../utilities/animateMenu'
+import useSetBrowser from '../hooks/useSetBrowser'
 
+function Navbar() {
+    const [target, setTarget] = useState({})
+    const { isFirefox, isChrome } = useSetBrowser()
 
+    useEffect(() => {
+        if (isFirefox) {
+            setTarget(document.querySelector('header'))
+        }
+    }, [isFirefox])
 
-function Navbar({ userAgent }) {
-    const { handleChange } = hideShowMenu()
-
+    useEffect(() => {
+        if (isChrome) {
+            animateMenu()
+        }
+    }, [isChrome])
 
     return (
         <div className="navbar">
-            <input type="checkbox" id="mobile-nav" onChange={() => userAgent.includes('firefox') && handleChange(document.querySelector('header'))} />
+            <input type="checkbox" id="mobile-nav" onChange={() => isFirefox && toggleClass(target, 'checked')} />    
             <nav>
                 <section className="left-side">
                     <h1 className="logo">Reach</h1>
