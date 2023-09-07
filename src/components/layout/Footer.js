@@ -5,7 +5,7 @@ function Footer() {
     const { isChrome } = useSetBrowser()
     return (
         <div>
-            <p className="center">{isChrome}</p>
+            <p className="center">{window.navigator.userAgent.toLowerCase().includes('crios')}</p>
             <p className="center">{window.navigator.userAgent}</p>
             <p className="center">Copiright &copy; 2023</p>
         </div>
