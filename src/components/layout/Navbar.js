@@ -4,25 +4,24 @@ import toggleClass from '../utilities/toggleClass'
 import useSetBrowser from '../hooks/useSetBrowser'
 
 function Navbar() {
-    const [target, setTarget] = useState({})
-    const { isFirefox, isChrome } = useSetBrowser()
+
+    const { firefox, crios, target, setTarget } = useSetBrowser()
 
     useEffect(() => {
-        if (isFirefox) {
+        if (firefox) {
             setTarget(document.querySelector('header'))
         }
-    }, [isFirefox])
+        if (crios) {
+            setTarget(document.querySelector('.mobile-nav-label'))
+            // target.classList.add('animate-menu')
+        }
+    }, [firefox, crios])
 
-    // useEffect(() => {
-    //     if (isChrome) {
-    //         setTarget(document.querySelector('.mobile-nav-label'))
-    //         target.classList.add('animate-menu')
-    //     }
-    // }, [isChrome])
+
 
     return (
         <div className="navbar">
-            <input type="checkbox" id="mobile-nav" onChange={() => isFirefox && toggleClass(target, 'checked')} />    
+            <input type="checkbox" id="mobile-nav" onChange={() => firefox && toggleClass(target, 'checked')} />    
             <nav>
                 <section className="left-side">
                     <h1 className="logo">Reach</h1>
