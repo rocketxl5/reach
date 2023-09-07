@@ -5,17 +5,13 @@ import useSetBrowser from '../hooks/useSetBrowser'
 
 function Navbar() {
 
-    const { firefox, crios, target, setTarget } = useSetBrowser()
+    const { firefox, crios, target } = useSetBrowser()
 
     useEffect(() => {
-        if (firefox) {
-            setTarget(document.querySelector('header'))
-        }
         if (crios) {
-            setTarget(document.querySelector('.mobile-nav-label'))
-            // target.classList.add('animate-menu')
+            target.classList.add('animate-menu')
         }
-    }, [firefox, crios])
+    }, [crios])
 
 
 
